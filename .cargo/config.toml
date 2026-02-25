@@ -1,0 +1,8 @@
+[target.aarch64-linux-android]
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = "thin"
