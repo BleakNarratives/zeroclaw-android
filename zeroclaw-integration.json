@@ -1,0 +1,129 @@
+{
+  "manifest": {
+    "name": "zeroclaw-android",
+    "version": "0.1.7",
+    "description": "First native zeroclaw build on Android/Termux. aarch64. No proot. No emulation.",
+    "built_by": "BleakNarratives",
+    "timestamp": "2026-02-25T04:11:47-06:00",
+    "binary": "target/release/zeroclaw",
+    "binary_size_bytes": 16282712,
+    "arch": "aarch64-unknown-linux-android",
+    "kernel": "Linux 5.4.284-moto",
+    "build_time_seconds": 1435,
+    "repo": "https://github.com/BleakNarratives/zeroclaw-android"
+  },
+
+  "host_environment": {
+    "platform": "Android/Termux",
+    "node_version": "24.13.0",
+    "npm_version": "11.10.1",
+    "rust_edition": "2021",
+    "primary_language": "Rust",
+    "shell": "bash",
+    "working_dir": "/data/data/com.termux/files/home",
+    "storage_root": "/storage/emulated/0",
+    "ollama_available": true,
+    "ollama_notes": "Running locally, limited by device RAM — model selection critical"
+  },
+
+  "parent_project": {
+    "name": "Vertical AI",
+    "aka": ["syntax_modmind", "ModMind", "Code City Apocalypse"],
+    "repo": "https://github.com/BleakNarratives/vertical-ai",
+    "description": "Terminal-based multi-persona AI boardroom running entirely on Android via Termux + Ollama. Personas debate ideas, analyze markets, evolve business models, and visualize everything in a 3D city (Three.js).",
+    "status": "Active development — MVP phases 1-4 complete, UX and frontend are current pain points",
+    "entry_point": "boardroom.py",
+    "architecture": {
+      "boardroom": "Multi-persona orchestration layer (Chairman, Adversary, Architect, CEO, CTO, CMO, CFO, UX Designer, Swarm, Rap Genius, Pytch, Twoie)",
+      "memory": "ConTrailer — persistent context across sessions",
+      "swarm": "Scout agents for market data, competitor intelligence, trend signals",
+      "dna": "Genetic algorithm layer — business models encoded as strings that mutate and evolve",
+      "code_city": "Three.js 3D visualization — buildings represent agents/modules, glow on activity",
+      "molt": "Orchestrator layer connecting components",
+      "ollama": "Local LLM backend — no cloud, all on-device"
+    },
+    "package_tiers": {
+      "base": ["Chairman", "Adversary", "Architect"],
+      "pro": ["Chairman", "Adversary", "Architect", "CMO", "Swarm", "CTO"],
+      "enterprise": ["Chairman", "Adversary", "Architect", "CMO", "Swarm", "CTO", "CEO", "CFO", "UX Designer"]
+    },
+    "known_pain_points": [
+      "Frontend UX is not where it needs to be — hard to explain but the experience doesn't match the vision",
+      "Backend not producing the right kind of UX response — output format and flow feel off",
+      "Ollama model limitations — 1.5B param models too weak for complex multi-persona reasoning",
+      "asyncio event loop conflicts between concurrent persona modules",
+      "3D Code City visualization planned but not yet live-connected to backend",
+      "Voice input not yet implemented"
+    ],
+    "tech_stack": {
+      "backend": "Python (asyncio, Rich, curses)",
+      "visualization": "Three.js (browser-based, launched via termux-open)",
+      "local_ai": "Ollama (Mistral 7B recommended)",
+      "external_apis": ["Together AI", "Hugging Face", "NewsAPI", "Yahoo Finance", "DuckDuckGo"],
+      "memory": "ConTrailer",
+      "mobile": "Termux on Android"
+    }
+  },
+
+  "zeroclaw_role": {
+    "what_it_is": "Nostr protocol client/relay tool — handles decentralized communication, relay pool management, and key operations over the Nostr network",
+    "dependencies_of_note": [
+      "nostr-sdk v0.44.1",
+      "nostr-relay-pool v0.44.0",
+      "axum v0.8.8",
+      "tokio (async runtime)",
+      "reqwest v0.12.28",
+      "tungstenite (websocket)"
+    ],
+    "potential_integration_roles": [
+      "Decentralized message bus between Vertical AI personas — route boardroom decisions over Nostr relays",
+      "Persistent event log — publish boardroom session events as Nostr events for tamper-evident history",
+      "Swarm intelligence data channel — scouts publish findings as Nostr events, boardroom subscribes",
+      "External comms layer — publish AI outputs to Nostr network for public/team consumption",
+      "Code City event feed — zeroclaw publishes activity events that Code City visualizes as building pulses"
+    ],
+    "integration_status": "Binary compiled and available. Not yet wired into Vertical AI stack. Next step is defining the interface layer.",
+    "binary_path_termux": "/data/data/com.termux/files/home/zeroclaw/target/release/zeroclaw",
+    "binary_path_storage": "/storage/emulated/0/zeroclaw-android/bin/zeroclaw"
+  },
+
+  "integration_guidance_for_claude": {
+    "context": "You are being handed this manifest to help integrate zeroclaw into the Vertical AI / ModMind / Code City stack. The human you are working with is BleakNarratives — solo developer, working entirely on Android/Termux, building a multi-persona AI boardroom with 3D visualization. He is technical, moves fast, doesn't like over-explanation, and has strong vision.",
+    "immediate_priorities": [
+      "Fix the UX disconnect — the frontend experience does not match the ambition of the system. Focus on making boardroom output feel visceral and alive, not like a log dump.",
+      "Help define how zeroclaw plugs in as a communication/event layer without breaking existing asyncio architecture",
+      "Keep everything Termux-compatible — no Docker, no cloud dependencies, no root required"
+    ],
+    "approach_notes": [
+      "BleakNarratives works best with concrete, runnable code — not architecture diagrams",
+      "He will push through problems but needs momentum — don't let him get stuck in config hell",
+      "The vision is clear; execution and polish are where help is needed",
+      "When in doubt, ship something that works at 80% over a perfect solution that blocks progress",
+      "He already has: working Ollama backend, persona system, basic boardroom TUI, Code City skeleton, zeroclaw binary"
+    ],
+    "do_not": [
+      "Suggest proot or emulation — he specifically achieved native builds to avoid this",
+      "Recommend cloud-first solutions — this is intentionally offline-capable",
+      "Over-engineer the architecture — complexity is the enemy here",
+      "Repeat context he already knows — he's deep in this stack"
+    ],
+    "suggested_first_questions": [
+      "What does the current boardroom output actually look like vs what you want it to feel like?",
+      "Is the UX issue in the terminal rendering (Rich/curses), the response format from Ollama, or the persona orchestration flow?",
+      "Do you want zeroclaw as an internal event bus or as an external-facing publish layer?"
+    ]
+  },
+
+  "molt_and_moltbook": {
+    "description": "Molt is referenced as the orchestrator in the Vertical AI stack. MoltBook appears to be a related notebook/session management layer. Both run in Termux.",
+    "status": "Active — was the primary focus before zeroclaw integration sprint",
+    "notes": "Ollama servers handling Molt traffic will face load issues as usage grows — scalability is a known concern"
+  },
+
+  "session_history_summary": {
+    "what_happened_today": "BleakNarratives attempted to compile zeroclaw v0.1.7 on Android/Termux. Gemini CLI and Gemini Android app both failed. After approximately 6 terminal crashes, OOM kills during linking, and a battery scare at 21%, the build succeeded at 04:11:47 CST on 2026-02-25 using mold linker + cargo profile optimizations. This is believed to be the first native zeroclaw build on Android. The binary and build documentation were pushed to GitHub.",
+    "key_breakthrough": "Replacing the default linker with mold and setting codegen-units=1 + lto=thin + opt-level=z reduced peak RAM enough for the link step to complete without being OOM-killed by Android",
+    "gemini_failed": true,
+    "claude_succeeded": true
+  }
+}
