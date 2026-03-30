@@ -130,3 +130,12 @@ See [LORE.md](LORE.md). There's something hidden in there. Find it.
 
 *Built by [@BleakNarratives](https://github.com/BleakNarratives) with an assist from Claude.*  
 *If this helped you, star the repo. If it didn't work, open an issue.*
+
+## Support
+https://ko-fi.com/bleaknarratives
+
+## Support
+https://ko-fi.com/bleaknarratives
+
+## Support
+https://ko-fi.com/bleaknarratives
