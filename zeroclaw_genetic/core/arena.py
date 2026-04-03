@@ -1,50 +1,40 @@
-from dataclasses import dataclass, field
-import random
-
-@dataclass
-class BattleResult:
-    winner: str
-    loser: str
-    damage_dealt: dict = field(default_factory=dict)
-
 class Arena:
     def __init__(self):
-        self.agents = []
-        self.tier_weights = {0: 1.0, 1: 1.5, 2: 2.0}
+        self.battle_log = []
+        self.agent_statistics = {}
+        self.killswitch_enabled = False
+        self.tier_weighted_damage = self.calculate_tier_weighted_damage()
+        self.tournament_results = {}
 
-    def add_agent(self, agent):
-        self.agents.append(agent)
+    def calculate_tier_weighted_damage(self):
+        # Implement calculation of damage based on agent tiers
+        pass
 
-    def simulate_battle(self, agent_a, agent_b):
-        # Simplified battle mechanics
-        damage_a = random.randint(1, 10) * self.tier_weights.get(agent_a.tier, 1)
-        damage_b = random.randint(1, 10) * self.tier_weights.get(agent_b.tier, 1)
+    def fitness_delta_calculation(self, agent):
+        # Implement logic to calculate fitness delta
+        pass
 
-        if damage_a > damage_b:
-            winner = agent_a
-            loser = agent_b
-        else:
-            winner = agent_b
-            loser = agent_a
+    def enforce_killswitch_for_tier_0(self, agent):
+        if agent.tier == 0:
+            self.killswitch_enabled = True
+            # Logic to stop Tier 0 agent
+            print(f"Killswitch activated for Tier 0 agent {agent.name}")
 
-        result = BattleResult(winner=winner.name, loser=loser.name, damage_dealt={winner.name: damage_a, loser.name: damage_b})
-        return result
+    def log_battle(self, battle_details):
+        self.battle_log.append(battle_details)
 
-    def killswitch_logic(self, chairman_tier):
-        if chairman_tier == 0:
-            return "Tier 0 Chairman activated killswitch!"
-        return "No killswitch activated."
+    def simulate_tournament(self, agents):
+        # Implement tournament logic and tracking
+        pass
 
-    def tournament_simulation(self):
-        results = []
-        while len(self.agents) > 1:
-            agent_a, agent_b = random.sample(self.agents, 2)
-            result = self.simulate_battle(agent_a, agent_b)
-            results.append(result)
-            self.agents.remove(result.loser)  # Remove loser from future battles
+    def track_agent_statistics(self, agent):
+        if agent.name not in self.agent_statistics:
+            self.agent_statistics[agent.name] = {'wins': 0, 'losses': 0}
+        # Update statistics
+        pass
 
-        return results
-
-    def log_statistics(self):
-        # Implement logging agent stats
+    # Additional methods related to battle mechanics
+    
+    def start_battle(self, agent1, agent2):
+        # Battle mechanics implementation
         pass
