@@ -64,7 +64,8 @@ class VectorMemory:
                 'memory_type': memory_type,
                 'content': content,
                 'success_score': success_score,
-                'timestamp': datetime.now().isoformat()
+                'timestamp': datetime.now().isoformat(),
+                'embedding': embedding
             }
             self.metadata.append(metadata_entry)
         self.save()
