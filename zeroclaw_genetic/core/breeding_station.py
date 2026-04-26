@@ -1,3 +1,5 @@
+import random
+
 class BreedingStation:
     def __init__(self, parent_hives, tier_mutation_rates):
         self.parent_hives = parent_hives  # List of hives to breed from
