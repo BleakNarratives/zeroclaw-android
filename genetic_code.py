@@ -21,7 +21,7 @@ class GeneticAlgorithm:
         Create a new individual with random genes.
         """
         # Implement logic for creating an individual with genes
-        return {'genes': self.randomize_genes(), 'fitness': 0}
+        return {'genes': self.randomize_genes(), 'fitness': 0, 'tier': 0}
 
     def randomize_genes(self):
         """
