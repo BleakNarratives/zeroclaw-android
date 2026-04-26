@@ -1,6 +1,6 @@
 # Updated genetic_code.py
 
-# Assuming necessary imports at the top 
+import random
 
 class GeneticAlgorithm:
     def __init__(self, population_size, mutation_rate, tiers):
