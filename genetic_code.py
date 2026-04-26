@@ -54,7 +54,7 @@ class GeneticAlgorithm:
             if random.random() < self.mutation_rate:
                 individual['genes'][i] = random.random()  # Randomize gene
 
-    def evolve(self):
+    def evolve(self, num_generations):
         """
         Evolve the population for a number of generations.
         """
